@@ -20,25 +20,6 @@ use App\Http\Controllers\EmployeeController;
 
 
 */Route::middleware(['web'])->group(function () {
-    Route::get('/items', [ItemController::class, 'index'])->name('items.index');
-    Route::get('/items/create', [ItemController::class, 'create'])->name('items.create');
-    Route::post('/items', [ItemController::class, 'store'])->name('items.store');
-    Route::get('/items/{item}', [ItemController::class, 'show'])->name('items.show');
-    Route::get('/items/{item}/edit', [ItemController::class, 'edit'])->name('items.edit')->middleware('guard');
-    Route::put('/items/{item}', [ItemController::class, 'update'])->name('items.update');
-    Route::delete('/items/{item}', [ItemController::class, 'destroy'])->name('items.destroy');
-
-    Route::get('/items', [ItemController::class, 'index'])->name('items.index');
-    Route::get('/items/create',[ItemController::class,'create'])->name('items.create');
-    Route::post('/items',[ItemController::class,'store'])->name('items.store');
-    Route::get(
-        '/no-access',
-        function () {
-            echo "Not allowed to access the page";
-            die;
-    }
-    );
-});
 
 Route::get('/login', [ProductController::class, 'index'])->name('auth.index');
 Route::post('/login/auth', [ProductController::class, 'login'])->name('auth.login');
@@ -63,3 +44,5 @@ Route::get('/employee/{id}', [EmployeeController::class,'show'])->name('employee
 Route::delete('/employee/delete/{id}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
 Route::get('/employee/edit/{id}', [EmployeeController::class, 'edit'])->name('employee.edit');
 Route::put('/employee/update/{id}', [EmployeeController::class, 'update'])->name('employee.update');
+
+});
